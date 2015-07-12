@@ -1,23 +1,82 @@
 package com.example.subash.myfirstapp;
 
 import android.content.Intent;
+import android.gesture.Gesture;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.util.Log;
 
-public class MyActivity extends ActionBarActivity {
+public class MyActivity extends ActionBarActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener
+        {
+            GestureDetectorCompat gestureDetector = new GestureDetectorCompat(this, this);
 
-    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTapEvent(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onShowPress(MotionEvent e) {
+
+            }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                return false;
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                return false;
+            }
+
+            @Override
+            public boolean onTouchEvent(MotionEvent event) {
+                this.gestureDetector.onTouchEvent(event);
+                return super.onTouchEvent(event);
+            }
+
+            public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
     public final static String TAG = "HI";
+    EditText text = (EditText) findViewById(R.id.edit_message);
 
-    @Override
+            @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+       // getFragmentManager().beginTransaction().add(R.id.container,new PlaceholderFragment()).commit();
     }
 
     @Override
@@ -48,6 +107,7 @@ public class MyActivity extends ActionBarActivity {
         // Do something in response to button
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
+        text.getLayoutParams().width = 20;
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
