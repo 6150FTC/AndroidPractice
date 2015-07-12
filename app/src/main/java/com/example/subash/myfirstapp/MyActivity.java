@@ -13,9 +13,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.util.Log;
 
-public class MyActivity extends ActionBarActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener
+public class MyActivity extends ActionBarActivity //implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener
         {
-            GestureDetectorCompat gestureDetector = new GestureDetectorCompat(this, this);
+            /*GestureDetectorCompat gestureDetector = new GestureDetectorCompat(this, this);
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -66,11 +66,10 @@ public class MyActivity extends ActionBarActivity implements GestureDetector.OnG
             public boolean onTouchEvent(MotionEvent event) {
                 this.gestureDetector.onTouchEvent(event);
                 return super.onTouchEvent(event);
-            }
+            }*/
 
             public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
-    public final static String TAG = "HI";
-    EditText text = (EditText) findViewById(R.id.edit_message);
+        public final static String TAG = "HI";
 
             @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +106,7 @@ public class MyActivity extends ActionBarActivity implements GestureDetector.OnG
         // Do something in response to button
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
-        text.getLayoutParams().width = 20;
+        editText.getLayoutParams().width = 20;
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
