@@ -1,6 +1,6 @@
 package com.example.subash.myfirstapp;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -52,7 +52,7 @@ public class DisplayMessageActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_display_message,
+            View rootView = inflater.inflate(R.layout.activity_display_message,
                     container, false);
             return rootView;
         }
