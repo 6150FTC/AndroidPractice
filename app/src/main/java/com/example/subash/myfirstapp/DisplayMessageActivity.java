@@ -24,10 +24,10 @@ public class DisplayMessageActivity extends ActionBarActivity {
         textView.setTextSize(40);
         textView.setText(message);
         setContentView(textView);
-        if (savedInstanceState == null) {
+       /* if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment()).commit();
-        }
+        }*/
     }
 
     @Override
@@ -45,6 +45,7 @@ public class DisplayMessageActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
+    /*
     public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() { }
@@ -56,5 +57,5 @@ public class DisplayMessageActivity extends ActionBarActivity {
                     container, false);
             return rootView;
         }
-    }
+    }*/
 }
